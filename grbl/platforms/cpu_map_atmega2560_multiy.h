@@ -1,5 +1,5 @@
 /*
-  cpu_map_atmega2560.h - CPU and pin mapping configuration file
+  cpu_map_atmega2560_multiy.h - CPU and pin mapping configuration file
   Part of Grbl
 
   Copyright (c) 2012-2015 Sungeun K. Jeon
@@ -18,7 +18,10 @@
   along with Grbl.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-/* This cpu_map file serves as a central pin mapping settings file for AVR Mega 2560 */
+/*
+  This cpu_map file serves as a central pin mapping settings file for
+  AVR Mega 2560 for multiple Y Axis drive setups.
+ */
 
 #ifdef GRBL_PLATFORM
 #error "cpu_map already defined: GRBL_PLATFORM=" GRBL_PLATFORM
@@ -60,7 +63,7 @@
 #define STEPPERS_DISABLE_BIT   7 // MEGA2560 Digital Pin 13
 #define STEPPERS_DISABLE_MASK (1<<STEPPERS_DISABLE_BIT)
 
-// Define homing/hard limit switch input pins and limit interrupt vectors. 
+// Define homing/hard limit switch input pins and limit interrupt vectors.
 // NOTE: All limit bit pins must be on the same port
 #define LIMIT_DDR       DDRB
 #define LIMIT_PORT      PORTB
@@ -69,7 +72,7 @@
 #define Y_LIMIT_BIT     5 // MEGA2560 Digital Pin 11
 #define Z_LIMIT_BIT     6 // MEGA2560 Digital Pin 12
 #define LIMIT_INT       PCIE0  // Pin change interrupt enable pin
-#define LIMIT_INT_vect  PCINT0_vect 
+#define LIMIT_INT_vect  PCINT0_vect
 #define LIMIT_PCMSK     PCMSK0 // Pin change interrupt register
 #define LIMIT_MASK ((1<<X_LIMIT_BIT)|(1<<Y_LIMIT_BIT)|(1<<Z_LIMIT_BIT)) // All limit bits
 
@@ -91,7 +94,7 @@
 #define COOLANT_MIST_DDR    DDRH
 #define COOLANT_MIST_PORT   PORTH
 #define COOLANT_MIST_BIT    6 // MEGA2560 Digital Pin 9
-#endif  
+#endif
 
 // Define user-control CONTROLs (cycle start, reset, feed hold) input pins.
 // NOTE: All CONTROLs pins must be on the same port and not on a port with other input pins (limits).
@@ -122,15 +125,14 @@
   #define TCCRA_REGISTER		TCCR4A
   #define TCCRB_REGISTER		TCCR4B
   #define OCR_REGISTER		OCR4B
-  
+
   #define COMB_BIT			COM4B1
   #define WAVE0_REGISTER		WGM40
   #define WAVE1_REGISTER		WGM41
   #define WAVE2_REGISTER		WGM42
   #define WAVE3_REGISTER		WGM43
-  
+
   #define SPINDLE_PWM_DDR		DDRH
   #define SPINDLE_PWM_PORT    PORTH
   #define SPINDLE_PWM_BIT		4 // MEGA2560 Digital Pin 97
 #endif // End of VARIABLE_SPINDLE
-
