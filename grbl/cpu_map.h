@@ -49,6 +49,14 @@
 
 //----------------------------------------------------------------------------------------
 
+#ifdef CPU_MAP_ATMEGA2560_MULTIY // (Arduino Mega 2560, multiple Y axis motors)
+
+  #include "platforms/cpu_map_atmega2560_multiy.h"
+
+#endif
+
+//----------------------------------------------------------------------------------------
+
 /*
 #ifdef CPU_MAP_CUSTOM_PROC
   // For a custom pin map or different processor, copy and edit ne of the default cpu map
