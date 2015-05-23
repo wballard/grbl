@@ -34,10 +34,10 @@
 #define SERIAL_UDRE USART0_UDRE_vect
 
 // Increase Buffers to make use of extra SRAM
-//#define RX_BUFFER_SIZE		256
-//#define TX_BUFFER_SIZE		128
-//#define BLOCK_BUFFER_SIZE	36
-//#define LINE_BUFFER_SIZE	100
+#define RX_BUFFER_SIZE		256
+#define TX_BUFFER_SIZE		128
+#define BLOCK_BUFFER_SIZE	36
+#define LINE_BUFFER_SIZE	256
 
 // Define step pulse output pins. NOTE: All step bit pins must be on the same port.
 #define STEP_DDR      DDRA
