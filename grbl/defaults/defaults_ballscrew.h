@@ -25,9 +25,9 @@
 
 #ifndef defaults_h
 #define defaults_h
-
-  // Description: Shapeoko CNC mill with three NEMA 23 stepper motors, driven by CarbideMotion
+  #define RESET_SETTINGS 1
   #define MICROSTEPS_XY 4
+  #define MAX_SPEED 300.0
   #define STEP_REVS_XY 200
   #define MM_PER_REV_XY (5)
   #define MICROSTEPS_Z 4
@@ -36,19 +36,19 @@
   #define DEFAULT_X_STEPS_PER_MM (MICROSTEPS_XY*STEP_REVS_XY/MM_PER_REV_XY)
   #define DEFAULT_Y_STEPS_PER_MM (MICROSTEPS_XY*STEP_REVS_XY/MM_PER_REV_XY)
   #define DEFAULT_Z_STEPS_PER_MM (MICROSTEPS_Z*STEP_REVS_Z/MM_PER_REV_Z)
-  #define DEFAULT_X_MAX_RATE 2500.0 // mm/min
-  #define DEFAULT_Y_MAX_RATE 2500.0 // mm/min
-  #define DEFAULT_Z_MAX_RATE 2500.0 // mm/min
-  #define DEFAULT_X_ACCELERATION (100.0*60*60) // 400*60*60 mm/min^2 = 400 mm/sec^2
-  #define DEFAULT_Y_ACCELERATION (100.0*60*60) // 400*60*60 mm/min^2 = 400 mm/sec^2
-  #define DEFAULT_Z_ACCELERATION (100.0*60*60) // 400*60*60 mm/min^2 = 400 mm/sec^2
+  #define DEFAULT_X_MAX_RATE MAX_SPEED // mm/min
+  #define DEFAULT_Y_MAX_RATE MAX_SPEED
+  #define DEFAULT_Z_MAX_RATE MAX_SPEED
+  #define DEFAULT_X_ACCELERATION (10.0*60*60)
+  #define DEFAULT_Y_ACCELERATION (10.0*60*60)
+  #define DEFAULT_Z_ACCELERATION (10.0*60*60)
   #define DEFAULT_X_MAX_TRAVEL 1200.0 // mm
-  #define DEFAULT_Y_MAX_TRAVEL 2400.0 // mm
-  #define DEFAULT_Z_MAX_TRAVEL 350.0 // mm
-  #define DEFAULT_STEP_PULSE_MICROSECONDS 10
+  #define DEFAULT_Y_MAX_TRAVEL 2300.0 // mm
+  #define DEFAULT_Z_MAX_TRAVEL 370.0 // mm
+  #define DEFAULT_STEP_PULSE_MICROSECONDS 20
   #define DEFAULT_STEPPING_INVERT_MASK 0
-  #define DEFAULT_DIRECTION_INVERT_MASK ((0<<X_AXIS)|(0<<Z_AXIS)|(0<<Y_AXIS))
-  #define DEFAULT_STEPPER_IDLE_LOCK_TIME 255 // msec (0-254, 255 keeps steppers enabled)
+  #define DEFAULT_DIRECTION_INVERT_MASK ((0<<X_AXIS)|(0<<Z_AXIS)|(1<<Y_AXIS))
+  #define DEFAULT_STEPPER_IDLE_LOCK_TIME 254 // msec (0-254, 255 keeps steppers enabled)
   #define DEFAULT_STATUS_REPORT_MASK 255 // All enabled
   #define DEFAULT_JUNCTION_DEVIATION 0.02 // mm
   #define DEFAULT_ARC_TOLERANCE 0.01 // mm
@@ -59,8 +59,8 @@
   #define DEFAULT_HARD_LIMIT_ENABLE 0  // false
   #define DEFAULT_HOMING_ENABLE 0  // false
   #define DEFAULT_HOMING_DIR_MASK 0 // move positive dir
-  #define DEFAULT_HOMING_FEED_RATE 100.0 // mm/min
-  #define DEFAULT_HOMING_SEEK_RATE 1000.0 // mm/min
+  #define DEFAULT_HOMING_FEED_RATE MAX_SPEED/2 // mm/min
+  #define DEFAULT_HOMING_SEEK_RATE MAX_SPEED
   #define DEFAULT_HOMING_DEBOUNCE_DELAY 25 // msec (0-65k)
   #define DEFAULT_HOMING_PULLOFF 1.0 // mm
 
