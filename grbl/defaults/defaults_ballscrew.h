@@ -30,9 +30,6 @@
   #define SPINDLE_MAX_RPM 24000.0
   #undef  SPINDLE_MIN_RPM
   #define SPINDLE_MIN_RPM 0.0
-  #undef  HOMING_CYCLE_0
-  #define HOMING_CYCLE_0 ((1<<X_AXIS)|(1<<Y_AXIS))  // OPTIONAL: Then move X,Y at the same time
-  #undef  HOMING_CYCLE_1
   #define ENABLE_M7
   #define MICROSTEPS_XY 4
   #define MAX_SPEED 1000.0
@@ -65,6 +62,7 @@
   #define DEFAULT_INVERT_LIMIT_PINS 0
   #define DEFAULT_SOFT_LIMIT_ENABLE 0
   #define DEFAULT_HARD_LIMIT_ENABLE 1
+  //home X,Y with an offset to have a consistent set 0 inside the limit switches
   #define DEFAULT_HOMING_ENABLE 1
   #define DEFAULT_HOMING_DIR_MASK ((1<<X_AXIS)|(1<<Y_AXIS))
   #define DEFAULT_HOMING_FEED_RATE MAX_SPEED/2 // mm/min
@@ -72,5 +70,10 @@
   #define DEFAULT_HOMING_DEBOUNCE_DELAY 25 // msec (0-65k)
   #define DEFAULT_HOMING_PULLOFF 15.0 // mm
   #define HOMING_FORCE_SET_ORIGIN
+  #define HOMING_FORCE_SET_ORIGIN_X -22.3
+  #define HOMING_FORCE_SET_ORIGIN_Y -50
+  #undef  HOMING_CYCLE_0
+  #define HOMING_CYCLE_0 ((1<<X_AXIS)|(1<<Y_AXIS))  // OPTIONAL: Then move X,Y at the same time
+  #undef  HOMING_CYCLE_1
 
 #endif
