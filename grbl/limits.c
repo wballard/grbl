@@ -279,12 +279,12 @@ void limits_go_home(uint8_t cycle_mask)
         set_axis_position = 0;
         #ifdef HOMING_FORCE_SET_ORIGIN_X
           if (idx==X_AXIS) {
-            set_axis_position = HOMING_FORCE_SET_ORIGIN_X;
+            set_axis_position = HOMING_FORCE_SET_ORIGIN_X*settings.steps_per_mm[idx];
           }
         #endif
         #ifdef HOMING_FORCE_SET_ORIGIN_Y
           if (idx==Y_AXIS) {
-            set_axis_position = HOMING_FORCE_SET_ORIGIN_Y;
+            set_axis_position = HOMING_FORCE_SET_ORIGIN_Y*settings.steps_per_mm[idx];
           }
         #endif
       #else

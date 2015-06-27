@@ -25,7 +25,6 @@
 
 #ifndef defaults_h
 #define defaults_h
-  #define RESET_SETTINGS 1
   #undef  SPINDLE_MAX_RPM
   #define SPINDLE_MAX_RPM 24000.0
   #undef  SPINDLE_MIN_RPM
@@ -34,7 +33,7 @@
   #define MICROSTEPS_XY 4
   #define MAX_SPEED 1000.0
   #define STEP_REVS_XY 200
-  #define MM_PER_REV_XY (5)
+  #define MM_PER_REV_XY (10)
   #define MICROSTEPS_Z 4
   #define STEP_REVS_Z 200
   #define MM_PER_REV_Z (5)
@@ -70,8 +69,8 @@
   #define DEFAULT_HOMING_DEBOUNCE_DELAY 25 // msec (0-65k)
   #define DEFAULT_HOMING_PULLOFF 15.0 // mm
   #define HOMING_FORCE_SET_ORIGIN
-  #define HOMING_FORCE_SET_ORIGIN_X -22.3
-  #define HOMING_FORCE_SET_ORIGIN_Y -50
+  #define HOMING_FORCE_SET_ORIGIN_X 3.5
+  #define HOMING_FORCE_SET_ORIGIN_Y -48.0
   #undef  HOMING_CYCLE_0
   #define HOMING_CYCLE_0 ((1<<X_AXIS)|(1<<Y_AXIS))  // OPTIONAL: Then move X,Y at the same time
   #undef  HOMING_CYCLE_1
