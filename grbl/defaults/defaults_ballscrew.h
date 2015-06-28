@@ -74,5 +74,5 @@
   #undef  HOMING_CYCLE_0
   #define HOMING_CYCLE_0 ((1<<X_AXIS)|(1<<Y_AXIS))  // OPTIONAL: Then move X,Y at the same time
   #undef  HOMING_CYCLE_1
-
+  #undef  HOMING_INIT_LOCK
 #endif
