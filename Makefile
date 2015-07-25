@@ -44,7 +44,7 @@ DEFAULTS   ?=DEFAULTS_GENERIC
 
 # Tune the lines below only if you know what you are doing:
 
-AVRDUDE = avrdude $(PROGRAMMER) -p $(DEVICE) -B 10 -F
+AVRDUDE = avrdude -v $(PROGRAMMER) -p $(DEVICE) -B 10 -F -D
 COMPILE = avr-gcc -Wall -Os -DF_CPU=$(CLOCK) -mmcu=$(DEVICE) -I. -ffunction-sections -fdata-sections -D$(PLATFORM)  -D$(DEFAULTS)
 
 OBJECTS = $(addprefix $(BUILDDIR)/,$(notdir $(SOURCE:.c=.o)))

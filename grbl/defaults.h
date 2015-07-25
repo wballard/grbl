@@ -87,6 +87,10 @@
   #include "defaults/defaults_ballscrew.h"
 #endif
 
+#ifdef DEFAULTS_LASER
+  #include "defaults/defaults_laser.h"
+#endif
+
 #ifdef DEFAULTS_SIMULATOR
   // Settings only for Grbl Simulator (www.github.com/grbl/grbl-sim)
   #include "defaults/defaults_simulator.h"
