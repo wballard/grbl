@@ -67,6 +67,7 @@ void spindle_stop()
 
 void spindle_set_state(uint8_t state, float rpm)
 {
+  sys.spindle_state = state;
   // Halt or set spindle direction and rpm.
   if (state == SPINDLE_DISABLE) {
 
@@ -132,5 +133,10 @@ void spindle_run(uint8_t state, float rpm)
 {
   if (sys.state == STATE_CHECK_MODE) { return; }
   protocol_buffer_synchronize(); // Empty planner buffer to ensure spindle is set when programmed.
+  //the power level when running in laser mode is not controlled here, so
+  //run it to 0 to avoid a 'start burn' on program start
+  #ifdef LASER_CONTROL_ENABLED
+    rpm = 0.0;
+  #endif
   spindle_set_state(state, rpm);
 }

@@ -57,7 +57,7 @@
 #include "report.h"
 #include "serial.h"
 #include "spindle_control.h"
-#include "stepper.h"
 #include "laser_control.h"
+#include "stepper.h"
 
 #endif

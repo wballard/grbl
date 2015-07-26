@@ -21,11 +21,12 @@
   #define DEFAULT_Z_STEPS_PER_MM (MICROSTEPS_Z*STEP_REVS_Z/MM_PER_REV_Z)
   #define DEFAULT_X_MAX_RATE 5000.0
   #define DEFAULT_Y_MAX_RATE 5000.0
-  #define DEFAULT_Z_MAX_RATE 10000.0
   #define DEFAULT_X_ACCELERATION (20.0*60*60)
-  #define DEFAULT_Y_ACCELERATION (20.0*60*60)
-  #define DEFAULT_Z_ACCELERATION (20.0*60*60)
-  #define DEFAULT_X_MAX_TRAVEL 1200.0 // mm
+  //the laser intensity is configured by Z depth, the speed effectively controls laser timing
+  #define DEFAULT_Z_MAX_RATE 10000.0
+  #define DEFAULT_Y_ACCELERATION (40.0*60*60)
+  #define DEFAULT_Z_ACCELERATION (40.0*60*60)
+  #define DEFAULT_X_MAX_TRAVEL 1180.0 // mm
   #define DEFAULT_Y_MAX_TRAVEL 800.0 // mm
   #define DEFAULT_Z_MAX_TRAVEL 100.0 // mm
   #define DEFAULT_STEP_PULSE_MICROSECONDS 20
@@ -44,10 +45,10 @@
   //home X,Y with an offset to have a consistent set 0 inside the limit switches
   #define DEFAULT_HOMING_ENABLE 1
   #define DEFAULT_HOMING_DIR_MASK ((1<<X_AXIS)|(1<<Y_AXIS))
-  #define DEFAULT_HOMING_FEED_RATE 1500.0
-  #define DEFAULT_HOMING_SEEK_RATE 1500.0
+  #define DEFAULT_HOMING_FEED_RATE 2000.0
+  #define DEFAULT_HOMING_SEEK_RATE 2000.0
   #define DEFAULT_HOMING_DEBOUNCE_DELAY 25 // msec (0-65k)
-  #define DEFAULT_HOMING_PULLOFF 10.0 // mm
+  #define DEFAULT_HOMING_PULLOFF 5.0 // mm
   #define HOMING_FORCE_SET_ORIGIN
   #define HOMING_FORCE_SET_ORIGIN_X 0.0
   #define HOMING_FORCE_SET_ORIGIN_Y 0.0
@@ -55,4 +56,5 @@
   #define HOMING_CYCLE_0 ((1<<X_AXIS)|(1<<Y_AXIS))  // OPTIONAL: Then move X,Y at the same time
   #undef  HOMING_CYCLE_1
   #undef  HOMING_INIT_LOCK
+  #define LASER_CONTROL_ENABLED 1
 #endif

@@ -2,7 +2,7 @@
   system.h - Header for system level commands and real-time processes
   Part of Grbl
 
-  Copyright (c) 2014-2015 Sungeun K. Jeon  
+  Copyright (c) 2014-2015 Sungeun K. Jeon
 
   Grbl is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -23,10 +23,10 @@
 
 #include "grbl.h"
 
-// Define system executor bit map. Used internally by realtime protocol as realtime command flags, 
+// Define system executor bit map. Used internally by realtime protocol as realtime command flags,
 // which notifies the main program to execute the specified realtime command asynchronously.
 // NOTE: The system executor uses an unsigned 8-bit volatile variable (8 flag limit.) The default
-// flags are always false, so the realtime protocol only needs to check for a non-zero value to 
+// flags are always false, so the realtime protocol only needs to check for a non-zero value to
 // know when there is a realtime command to execute.
 #define EXEC_STATUS_REPORT  bit(0) // bitmask 00000001
 #define EXEC_CYCLE_START    bit(1) // bitmask 00000010
@@ -57,7 +57,7 @@
 #define STATE_CYCLE         bit(3) // Cycle is running or motions are being executed.
 #define STATE_HOLD          bit(4) // Active feed hold
 #define STATE_SAFETY_DOOR   bit(5) // Safety door is ajar. Feed holds and de-energizes system.
-#define STATE_MOTION_CANCEL bit(6) // Motion cancel by feed hold and return to idle. 
+#define STATE_MOTION_CANCEL bit(6) // Motion cancel by feed hold and return to idle.
 
 // Define system suspend states.
 #define SUSPEND_DISABLE       0      // Must be zero.
@@ -76,13 +76,14 @@ typedef struct {
   volatile uint8_t rt_exec_state;  // Global realtime executor bitflag variable for state management. See EXEC bitmasks.
   volatile uint8_t rt_exec_alarm;  // Global realtime executor bitflag variable for setting various alarms.
 
-  int32_t position[N_AXIS];      // Real-time machine (aka home) position vector in steps. 
-                                 // NOTE: This may need to be a volatile variable, if problems arise.                             
+  int32_t position[N_AXIS];      // Real-time machine (aka home) position vector in steps.
+                                 // NOTE: This may need to be a volatile variable, if problems arise.
 
   uint8_t homing_axis_lock;       // Locks axes when limits engage. Used as an axis motion mask in the stepper ISR.
   volatile uint8_t probe_state;   // Probing state value.  Used to coordinate the probing cycle with stepper ISR.
   int32_t probe_position[N_AXIS]; // Last probe position in machine coordinates and steps.
   uint8_t probe_succeeded;        // Tracks if last probing cycle was successful.
+  uint8_t spindle_state;          // Tracks the spindle runtime state, disable, CW, CCW.
 } system_t;
 extern system_t sys;
 

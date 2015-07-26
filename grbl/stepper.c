@@ -386,7 +386,7 @@ ISR(TIMER1_COMPA_vect)
   }
 
   // During a homing cycle, lock out and prevent desired axes from moving.
-  if (sys.state == STATE_HOMING) { st.step_outbits &= sys.homing_axis_lock; }a
+  if (sys.state == STATE_HOMING) { st.step_outbits &= sys.homing_axis_lock; }
   else {
     #ifdef LASER_CONTROL_ENABLED
       laser_power_adjust(sys.position);
