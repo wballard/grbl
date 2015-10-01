@@ -88,4 +88,8 @@
   #include "defaults/defaults_simulator.h"
 #endif
 
+#ifdef DEFAULTS_BALLSCREW
+  #include "defaults/defaults_ballscrew.h"
+#endif
+
 #endif
