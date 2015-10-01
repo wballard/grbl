@@ -82,6 +82,7 @@ typedef struct {
   float max_rate[N_AXIS];
   float acceleration[N_AXIS];
   float max_travel[N_AXIS];
+  float homing_offset[N_AXIS];
 
   // Remaining Grbl settings
   uint8_t pulse_microseconds;

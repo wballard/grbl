@@ -298,7 +298,7 @@ void limits_go_home(uint8_t cycle_mask)
           sys.position[idx] = set_axis_position;
         }        
       #else 
-        sys.position[idx] = set_axis_position;
+        sys.position[idx] = set_axis_position + settings.homing_offset[idx] * settings.steps_per_mm[idx];
       #endif
 
     }
