@@ -51,7 +51,8 @@
   #define DEFAULT_X_HOMING_OFFSET 3.5
   #define DEFAULT_Y_HOMING_OFFSET  -54.0
   #undef  HOMING_CYCLE_0
-  #define HOMING_CYCLE_0 ((1<<X_AXIS)|(1<<Y_AXIS))  // OPTIONAL: Then move X,Y at the same time
+  #define HOMING_CYCLE_0 (1<<X_AXIS)
   #undef  HOMING_CYCLE_1
+  #define HOMING_CYCLE_1 (1<<Y_AXIS)
   #undef  HOMING_INIT_LOCK
 #endif
