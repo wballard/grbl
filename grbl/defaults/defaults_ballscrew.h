@@ -1,6 +1,6 @@
 /*
   defaults_ballscrew.h -
-  Theses defaults are set up for 1605 based ballscrew systems driven by NEMA 23
+  Theses defaults are set up for 1605/1610 based ballscrew systems driven by NEMA 23
   type motors on large format tables.
 */
 
@@ -18,12 +18,12 @@
   #define DEFAULT_X_STEPS_PER_MM (MICROSTEPS_XY*STEP_REVS_XY/MM_PER_REV_XY)
   #define DEFAULT_Y_STEPS_PER_MM (MICROSTEPS_XY*STEP_REVS_XY/MM_PER_REV_XY)
   #define DEFAULT_Z_STEPS_PER_MM (MICROSTEPS_Z*STEP_REVS_Z/MM_PER_REV_Z)
-  #define DEFAULT_X_MAX_RATE 10000.0
-  #define DEFAULT_Y_MAX_RATE 10000.0
-  #define DEFAULT_Z_MAX_RATE 10000.0
-  #define DEFAULT_X_ACCELERATION (100.0*60*60)
-  #define DEFAULT_Y_ACCELERATION (100.0*60*60)
-  #define DEFAULT_Z_ACCELERATION (100.0*60*60)
+  #define DEFAULT_X_MAX_RATE 6000.0
+  #define DEFAULT_Y_MAX_RATE 6000.0
+  #define DEFAULT_Z_MAX_RATE 6000.0
+  #define DEFAULT_X_ACCELERATION (600.0*60*60)
+  #define DEFAULT_Y_ACCELERATION (600.0*60*60)
+  #define DEFAULT_Z_ACCELERATION (600.0*60*60)
   #define DEFAULT_X_MAX_TRAVEL 1240.0 // mm
   #define DEFAULT_Y_MAX_TRAVEL 2060.0 // mm
   #define DEFAULT_Z_MAX_TRAVEL 260.0 // mm
@@ -47,9 +47,6 @@
   #define DEFAULT_HOMING_SEEK_RATE DEFAULT_Y_MAX_RATE / 4.0
   #define DEFAULT_HOMING_DEBOUNCE_DELAY 25 // msec (0-65k)
   #define DEFAULT_HOMING_PULLOFF 15.0 // mm
-  #define HOMING_FORCE_SET_ORIGIN
-  #define DEFAULT_X_HOMING_OFFSET 3.5
-  #define DEFAULT_Y_HOMING_OFFSET  -54.0
   #undef  HOMING_CYCLE_0
   #define HOMING_CYCLE_0 (1<<X_AXIS)
   #undef  HOMING_CYCLE_1
