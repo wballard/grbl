@@ -33,11 +33,11 @@
 #define SERIAL_UDRE USART0_UDRE_vect
 
 // Increase Buffers to make use of extra SRAM
-//#define RX_BUFFER_SIZE		  256
-//#define TX_BUFFER_SIZE		  128
-//#define BLOCK_BUFFER_SIZE	  36
-//#define LINE_BUFFER_SIZE	  100
-//#define SEGMENT_BUFFER_SIZE 10
+#define RX_BUFFER_SIZE		  256
+#define TX_BUFFER_SIZE		  128
+#define BLOCK_BUFFER_SIZE	  36
+#define LINE_BUFFER_SIZE	  100
+#define SEGMENT_BUFFER_SIZE 10
 
 // Define step pulse output pins. NOTE: All step bit pins must be on the same port.
 #define STEP_DDR      DDRA
@@ -63,7 +63,7 @@
 #define STEPPERS_DISABLE_BIT   7 // MEGA2560 Digital Pin 13
 #define STEPPERS_DISABLE_MASK (1<<STEPPERS_DISABLE_BIT)
 
-// Define homing/hard limit switch input pins and limit interrupt vectors. 
+// Define homing/hard limit switch input pins and limit interrupt vectors.
 // NOTE: All limit bit pins must be on the same port
 #define LIMIT_DDR       DDRB
 #define LIMIT_PORT      PORTB
@@ -72,7 +72,7 @@
 #define Y_LIMIT_BIT     5 // MEGA2560 Digital Pin 11
 #define Z_LIMIT_BIT     6 // MEGA2560 Digital Pin 12
 #define LIMIT_INT       PCIE0  // Pin change interrupt enable pin
-#define LIMIT_INT_vect  PCINT0_vect 
+#define LIMIT_INT_vect  PCINT0_vect
 #define LIMIT_PCMSK     PCMSK0 // Pin change interrupt register
 #define LIMIT_MASK ((1<<X_LIMIT_BIT)|(1<<Y_LIMIT_BIT)|(1<<Z_LIMIT_BIT)) // All limit bits
 
@@ -94,7 +94,7 @@
 #define COOLANT_MIST_DDR    DDRH
 #define COOLANT_MIST_PORT   PORTH
 #define COOLANT_MIST_BIT    6 // MEGA2560 Digital Pin 9
-#endif  
+#endif
 
 // Define user-control CONTROLs (cycle start, reset, feed hold) input pins.
 // NOTE: All CONTROLs pins must be on the same port and not on a port with other input pins (limits).
@@ -127,10 +127,10 @@
   #define TCCRB_REGISTER		TCCR4B
   #define OCR_REGISTER	  	OCR4B
   #define COMB_BIT			    COM4B1
-  
+
   // 1/8 Prescaler, 16-bit Fast PWM mode
   #define TCCRA_INIT_MASK ((1<<WGM40) | (1<<WGM41))
-  #define TCCRB_INIT_MASK ((1<<WGM42) | (1<<WGM43) | (1<<CS41)) 
+  #define TCCRB_INIT_MASK ((1<<WGM42) | (1<<WGM43) | (1<<CS41))
   #define OCRA_REGISTER   OCR4A // 16-bit Fast PWM mode requires top reset value stored here.
   #define OCRA_TOP_VALUE  0x0400 // PWM counter reset value. Should be the same as PWM_MAX_VALUE in hex.
 
